@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* max-height: 120px; */
     width: calc(100% - 2*200px);
     margin: 0 auto;
 }
