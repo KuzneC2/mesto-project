@@ -1,0 +1,45 @@
+.popup__sumbit {
+    width: calc(100% - 2*36px);
+    display: block;
+    margin: 0 auto 30px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    max-width: 358px;
+    height: 50px;
+    padding: 0;
+}
+
+.popup__sumbit:hover {
+    opacity: 0.8;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+@media screen and(max-width:800px) {
+    .popup__sumbit{
+        width: calc(100% - 2*30px);
+        max-width: 740px;
+        font-size: 16px;
+        height: 48px;
+        margin-top: 20px;
+        font-size: 16px;
+        }
+    
+}
+
+@media screen and (max-width: 480px) {
+    .popup__sumbit {
+        width: calc(100% - 2*22px);
+        max-width: 436px;    
+        height: 46px;
+        font-size: 15px;
+        margin: 15px auto 25px ;
+    }
+}

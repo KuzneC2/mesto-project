@@ -1,0 +1,17 @@
+.profile__info-work {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    display: block;
+
+}
+
+@media screen and (max-weidth: 480px) {
+    .profile__info-work {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

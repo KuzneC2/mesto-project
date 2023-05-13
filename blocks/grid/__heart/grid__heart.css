@@ -1,0 +1,18 @@
+.grid__heart {
+    color: #000000;
+    border: 0 none white;
+}
+
+.grid__heart:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.grid__heart:active {
+    opacity: 1;
+    background-position: center;
+    background-image: url(../../../images/active__like.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0s;
+}

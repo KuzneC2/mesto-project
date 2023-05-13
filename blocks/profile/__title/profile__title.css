@@ -1,0 +1,14 @@
+.profile__title {
+    display: flex;
+    flex-direction: row;
+
+}
+
+@media screen and (max-width:1040px) {
+    .profile__title {
+        flex-direction: column;
+        width: 70%;
+        margin: 0 auto;
+        justify-items: center;
+    }
+}

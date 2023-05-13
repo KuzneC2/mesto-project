@@ -1,0 +1,7 @@
+.grid__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 15px;
+    width: calc(100% - 2*20px);
+}
