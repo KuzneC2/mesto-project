@@ -3,5 +3,11 @@
     max-width: 282px;
     border-radius: 10px;
     overflow: hidden;
-    max-height: 361px;
+}
+
+@media screen and (max-width: 480px) {
+    .grid__element{
+        height: 361px;
+    }
+    
 }

@@ -9,130 +9,97 @@
     <title>Место</title>
 </head>
 
-<body class="main">
-    <div class="wrapper wrapper_active">
-        <input class="modal" type="checkbox" id="modal">
-        <form class="popup popup_active" action="">
+<body class="body">
+    <div class="popup popup_opened">
+        <form class="popup__container" name="popup__container" action="">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input" type="text" value="Жак-Ив Кусто">
-            <input class="popup__input" type="text" value="Исследователь океана">
-            <input class="popup__sumbit" type="submit" value="Сохранить">
-            <label class="popup__close" for="modal"><img class="popup__close-img" src="./images/Close Icon.svg"
-                    alt=""></label>
+            <input class="popup__input" name="name" type="text" value="Жак-Ив Кусто">
+            <input class="popup__input" name="profession" type="text" value="Исследователь океана">
+            <button class="popup__sumbit" type="submit">Сохранить</button>
+             <button type="reset">
+                 <img class="popup__close" src="./images/Close Icon.svg" alt="">
+             </button>
         </form>
     </div>
     <header class="header">
         <img class="header__image" src="./images/logo.svg" alt="Логотип Место">
     </header>
-
-
-
-
-    <section class="profile">
-        <div class="profile__title">
-            <img class="profile__avatar" src="./images/image.jpg" alt="Аватар">
-            <div class="profile__info">
-                <div class="profile__info-up">
-                    <h2 class="profile__info-name">Жак-Ив Кусто</h2>
-                    <img class="modal__vector" src="./images/Vector.svg" alt="">
+    <section class="main">
+        <section class="profile">
+            <div class="profile__title">
+                <img class="profile__avatar" src="./images/image.jpg" alt="Аватар">
+                <div class="profile__info">
+                    <div class="profile__info-up">
+                        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button">
+                            <img class="profile__edit-img" src="./images/Vector.svg" alt="Изменить">
+                        </button>
+                    </div>
+                    <p class="profile__info-work">Исследователь океана</p>
                 </div>
-                <h3 class="profile__info-work">Исследователь океана</h3>
             </div>
-        </div>
-        <button class="profile__add-button"><img src="./images/+.svg" alt=""></button>
-
-
-
-    </section>
-
-
-
-
-
-    <section class="grit-list">
-        <div class="grid">
+            <button class="profile__add-button"><img src="./images/+.svg" alt=""></button>
+        </section>
+        <section class="grid-list">
             <div class="grid__element">
                 <img class="grid__image" src="./images/karachaevsk.jpg" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Карачаевск</h2>
-                    <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    <button class="grid__heart-button">
+                        <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    </button>
                 </div>
             </div>
             <div class="grid__element">
                 <img class="grid__image" src="./images/Elbrus.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Гора Эльбрус</h2>
-                    <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    <button class="grid__heart-button">
+                        <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    </button>
                 </div>
             </div>
             <div class="grid__element">
                 <img class="grid__image" src="./images/Dombay.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Домбай</h2>
-                    <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    <button class="grid__heart-button">
+                        <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    </button>
                 </div>
             </div>
             <div class="grid__element">
                 <img class="grid__image" src="./images/Elbrus.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Гора Эльбрус</h2>
-                    <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    <button class="grid__heart-button">
+                        <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    </button>
                 </div>
             </div>
             <div class="grid__element">
                 <img class="grid__image" src="./images/Dombay.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Домбай</h2>
-                    <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    <button class="grid__heart-button">
+                        <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    </button>
                 </div>
             </div>
             <div class="grid__element">
                 <img class="grid__image" src="./images/karachaevsk.jpg" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Карачаево-Черкеск</h2>
-                    <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    <button class="grid__heart-button">
+                        <img class="grid__heart" src="./images/like.svg" alt="Избранное">
+                    </button>
                 </div>
             </div>
-        </div>
-
-
-
-
-
+        </section>
     </section>
     <footer class="footer">
         <p class="footer__land">© 2020 Mesto Russia</p>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>

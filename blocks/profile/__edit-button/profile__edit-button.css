@@ -1,0 +1,18 @@
+.profile__edit-button{
+    -webkit-appearance: button;
+    background-color: #000000;
+    border: 0;
+    margin: auto 0 ;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (max-width:480px) {
+    .profile__edit-button{
+        width: 18px;
+        height: 18px;
+        margin: 7px 0 0 0;
+    }
+    
+}

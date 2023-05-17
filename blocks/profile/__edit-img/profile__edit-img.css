@@ -1,0 +1,18 @@
+.profile__edit-img {
+    border: 1px solid #ffffff;
+    justify-self: center;
+    width: 10px;
+    height: 10px;
+    padding: 7px;
+}
+
+@media screen and (max-width: 480px) {
+    .profile__edit-img{
+        padding: 5px;
+    }
+}
+
+.profile__edit-img:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
