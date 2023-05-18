@@ -25,5 +25,7 @@
     .profile__info-work {
         font-size: 14px;
         line-height: 17px;
+        margin: 0 auto;
+        width: calc(100% - 2*10px);
     }
 }

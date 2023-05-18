@@ -32,3 +32,10 @@
         margin-top: 0;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .grid-list{
+        margin-bottom: 48px;
+    }
+    
+}

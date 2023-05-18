@@ -8,7 +8,9 @@
 
 @media screen and (max-width: 480px) {
     .profile__edit-img{
-        padding: 5px;
+        padding: 5.25px;
+        width: 7.5px;
+        height: 7.5px;
     }
 }
 

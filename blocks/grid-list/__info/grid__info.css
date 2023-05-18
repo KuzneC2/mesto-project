@@ -5,3 +5,10 @@
     margin: 20px 15px;
     width: calc(100% - 2*20px);
 }
+
+@media screen and (max-width: 480px) {
+    .grid__info {
+        margin: 25px auto 31px;
+        width: calc(100% - 2*18px);
+    }
+}

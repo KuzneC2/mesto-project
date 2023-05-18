@@ -11,20 +11,22 @@
 
 <body class="body">
     <div class="popup popup_opened">
-        <form class="popup__container" name="popup__container" action="">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input" name="name" type="text" value="Жак-Ив Кусто">
-            <input class="popup__input" name="profession" type="text" value="Исследователь океана">
-            <button class="popup__sumbit" type="submit">Сохранить</button>
-             <button class="popup__close-btn" type="reset">
-                 <img class="popup__close" src="./images/Close Icon.svg" alt="Закрыть">
-             </button>
-        </form>
+        <div class="popup__container">
+            <form class="popup__form-profile" name="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup_input_txt" name="name" type="text" value="Жак-Ив Кусто">
+                <input class="popup_input_txt" name="profession" type="text" value="Исследователь океана">
+                <button class="popup__sumbit" type="submit">Сохранить</button>
+                 <button class="popup__close-btn" type="button">
+                     <img class="popup__close" src="./images/CloseIcon.svg" alt="Закрыть">
+                 </button>
+            </form>
+        </div>
     </div>
     <header class="header">
         <img class="header__image" src="./images/logo.svg" alt="Логотип Место">
     </header>
-    <section class="main">
+    <main class="main">
         <section class="profile">
             <div class="profile__title">
                 <img class="profile__avatar" src="./images/image.jpg" alt="Аватар">
@@ -38,14 +40,14 @@
                     <p class="profile__info-work">Исследователь океана</p>
                 </div>
             </div>
-            <button class="profile__add-button"><img src="./images/+.svg" alt="Добавить"></button>
+            <button class="profile__add-button"><img class="profile__add-plus" src="./images/+.svg" alt="Добавить"></button>
         </section>
         <section class="grid-list">
             <div class="grid__element">
                 <img class="grid__image" src="./images/karachaevsk.jpg" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Карачаевск</h2>
-                    <button class="grid__heart-button">
+                    <button class="grid__heart-button" type="button">
                         <img class="grid__heart" src="./images/like.svg" alt="Избранное">
                     </button>
                 </div>
@@ -54,7 +56,7 @@
                 <img class="grid__image" src="./images/Elbrus.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Гора Эльбрус</h2>
-                    <button class="grid__heart-button">
+                    <button class="grid__heart-button" type="button">
                         <img class="grid__heart" src="./images/like.svg" alt="Избранное">
                     </button>
                 </div>
@@ -63,7 +65,7 @@
                 <img class="grid__image" src="./images/Dombay.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Домбай</h2>
-                    <button class="grid__heart-button">
+                    <button class="grid__heart-button" type="button">
                         <img class="grid__heart" src="./images/like.svg" alt="Избранное">
                     </button>
                 </div>
@@ -72,7 +74,7 @@
                 <img class="grid__image" src="./images/Elbrus.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Гора Эльбрус</h2>
-                    <button class="grid__heart-button">
+                    <button class="grid__heart-button" type="button">
                         <img class="grid__heart" src="./images/like.svg" alt="Избранное">
                     </button>
                 </div>
@@ -81,7 +83,7 @@
                 <img class="grid__image" src="./images/Dombay.png" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Домбай</h2>
-                    <button class="grid__heart-button">
+                    <button class="grid__heart-button" type="button">
                         <img class="grid__heart" src="./images/like.svg" alt="Избранное">
                     </button>
                 </div>
@@ -90,13 +92,13 @@
                 <img class="grid__image" src="./images/karachaevsk.jpg" alt="Карачаевс">
                 <div class="grid__info">
                     <h2 class="grid__title">Карачаево-Черкеск</h2>
-                    <button class="grid__heart-button">
+                    <button class="grid__heart-button" type="button">
                         <img class="grid__heart" src="./images/like.svg" alt="Избранное">
                     </button>
                 </div>
             </div>
         </section>
-    </section>
+    </main>
     <footer class="footer">
         <p class="footer__land">© 2020 Mesto Russia</p>
     </footer>
