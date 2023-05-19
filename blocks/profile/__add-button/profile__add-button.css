@@ -21,7 +21,7 @@
     .profile__add-button {
         width: calc(100% - 2*19px);
         max-width: 320px;
-        margin-bottom: 36px;
+        margin: 36px auto;
     }
 }
 

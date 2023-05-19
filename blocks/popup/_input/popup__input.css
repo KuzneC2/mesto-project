@@ -1,4 +1,4 @@
-.popup_input_txt {
+.popup__input {
     display: block;
     margin: 0 auto 38px;
     width: calc(100% - 2*36px);
