@@ -25,8 +25,8 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
     .profile__info-up {
-        margin: 0 auto 14px;
+        margin: 0 auto 7px;
     }
 }
