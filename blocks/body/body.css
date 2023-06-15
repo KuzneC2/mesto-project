@@ -1,3 +1,13 @@
+@keyframes openpopup {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+
 .body {
     color: #ffffff;
     background-color: #000000;
@@ -5,5 +15,5 @@
     padding: 0;
     max-width: 1280px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
 }

@@ -4,7 +4,7 @@
 
 .grid {
     margin: 50px auto 66px;
-    width: calc(100% - 2*200px);
+
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: repeat(3, minmax(100px, 282px));

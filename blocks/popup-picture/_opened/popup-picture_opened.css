@@ -1,0 +1,4 @@
+.popup-picture_opened {
+    display: block;
+   animation: openpopup 1s forwards;
+  }
