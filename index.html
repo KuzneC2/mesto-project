@@ -10,7 +10,7 @@
 </head>
 
 <body class="body">
-    <div class="popup popup_image-dark">
+    <div class="popup popup_edit-profile">
         <div class="popup__container popup__container_edit ">
             <form class=" popup__form-profile" name="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
@@ -23,6 +23,8 @@
                 </button>
             </form>
         </div>
+    </div>
+    <div class="popup popup_add-card">
         <div class="popup__container popup__container_add">
             <form class=" popup__form-profile popup__form-add" name="popup__container">
                 <h2 class="popup__title">Новое место</h2>
@@ -36,17 +38,16 @@
                 </button>
             </form>
         </div>
-
-        
-            <div class="popup-picture popup-picture_opened">
-                <img class="popup-picture__image"
-                    src="" alt="">
-                <h2 class="popup-picture__title"></h2>
-                <button class="popup__close-btn" type="button">
-                    <img class="popup__close" src="./images/CloseIcon.svg" alt="Закрыть">
-                </button>
-            </div>
-
+    </div>
+    <div class="popup popup_image-open popup_image-dark">
+        <div class="popup-picture popup-picture_opened">
+            <img class="popup-picture__image"
+                src="" alt="">
+            <h2 class="popup-picture__title"></h2>
+            <button class="popup__close-btn" type="button">
+                <img class="popup__close" src="./images/CloseIcon.svg" alt="Закрыть">
+            </button>
+        </div>
     </div>
         <header class="header">
             <img class="header__image" src="./images/logo.svg" alt="Логотип Место">
@@ -68,7 +69,6 @@
                 <button class="profile__add-button" type="button"><img class="profile__add-plus" src="./images/+.svg"
                         alt="Добавить"></button>
             </section>
-            
             <section class="grid"></section>
     </main>
     <footer class="footer">
