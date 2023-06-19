@@ -1,4 +1,5 @@
 const openEdidPopup = document.querySelector('.profile__edit-img');
+// popup нужен только для закрытия попапов при нажатии крестика
 const popup = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_edit-profile');
 const popupAdd = document.querySelector('.popup_add-card');
@@ -7,20 +8,17 @@ const closeButtons = document.querySelectorAll('.popup__close');
 function openPopup(popupElement) {
     popupElement.classList.add('popup_opened');
 }
-
 // попапы изменения и добавления
 openEdidPopup.addEventListener('click', function () {
     openPopup(popupEdit);
 });
-
 openAddPopup.addEventListener('click', function () {
     openPopup(popupAdd);
 });
-
-//  закрытие попапов на крестик
 function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened')
 }
+//  закрытие попапов на крестик
 for (let i = 0; i < closeButtons.length; i++) {
     closeButtons[i].addEventListener('click', function () {
         closePopup(popup[i]);
@@ -34,7 +32,7 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     name.textContent = document.querySelector('.popup__input_txt_name').value;
     job.textContent = document.querySelector('.popup__input_txt_profession').value;
-    popup[0].classList.remove('popup_opened');
+    closePopup(popupEdit);
 }
 formElement.addEventListener('submit', formSubmitHandler);
 // Функция создания карточек
@@ -64,11 +62,8 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-let result = initialCards.map(function (a) { return a.name })
-console.log()
 const grid = document.querySelector('.grid');
 function cardAdd(name, link) {
-
     const cardTemplate = document.querySelector('.template').content;
     const cardElementTemplate = cardTemplate.querySelector('.grid__element').cloneNode(true);
     cardElementTemplate.querySelector('.grid__title').textContent = name;
@@ -76,27 +71,6 @@ function cardAdd(name, link) {
     cardElementTemplate.querySelector('.grid__heart').addEventListener('click', function (evt) {
         evt.target.classList.toggle('grid__heart_active')
     })
-    grid.prepend(cardElementTemplate);
-    const deleteList = document.querySelectorAll('.grid__trash');
-
-    deleteList.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            btn.parentElement.remove();
-        });
-    });
-}
-initialCards.forEach(function (item) {
-    cardAdd(item.name, item.link);
-});
-const sumbitFormAdd = document.querySelector('.popup__save');
-sumbitFormAdd.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    const name = document.querySelector('.popup__input_txt_name-add').value
-    const link = document.querySelector('.popup__input_link').value
-    cardAdd(name, link);
-    popup[1].classList.remove('popup_opened');
-    document.querySelector('.popup__input_txt_name-add').value = '';
-    document.querySelector('.popup__input_link').value = '';
     const gridImage = document.querySelectorAll('.grid__image');
     const titleGrid = document.querySelectorAll('.grid__title');
     gridImage.forEach((btn, i) => {
@@ -106,17 +80,48 @@ sumbitFormAdd.addEventListener('click', function (evt) {
             openPopup(popupImage);
         })
     })
+    return cardElementTemplate;
+}
+function renderCard(name, link) {
+    grid.prepend(cardAdd(name, link));
+
+}
+initialCards.forEach(function (item) {
+    renderCard(item.name, item.link);
+    const deleteList = document.querySelectorAll('.grid__trash');
+    deleteList.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            btn.closest('.grid__element').remove()
+        });
+    });
+});
+const nameA = document.querySelector('.popup__input_txt_name-add');
+const linkA = document.querySelector('.popup__input_link');
+const sumbitFormAdd = document.querySelector('.popup__save');
+sumbitFormAdd.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    const name = nameA.value;
+    const link = linkA.value;
+    renderCard(name, link);
+    const deleteList = document.querySelectorAll('.grid__trash');
+    deleteList.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            btn.closest('.grid__element').remove()
+        });
+    });
+    closePopup(popupAdd);
+    document.querySelector('.popup__input_txt_name-add').value = '';
+    document.querySelector('.popup__input_link').value = '';
+    const gridImage = document.querySelector('.grid__image');
+    const titleGrid = document.querySelector('.grid__title');
+    gridImage.addEventListener('click', () => {
+        document.querySelector('.popup-picture__image').src = gridImage.src;
+        popupGridTitle.textContent = titleGrid.textContent;
+        openPopup(popupImage);
+    })
+    grid.prepend(cardElementTemplate);
 })
 // Попап картинка
-const gridImage = document.querySelectorAll('.grid__image');
-const titleGrid = document.querySelectorAll('.grid__title');
 const popupImage = document.querySelector('.popup_image-open');
 const popupGridImage = document.querySelector('.popup-picture__image');
 const popupGridTitle = document.querySelector('.popup-picture__title');
-gridImage.forEach((btn, i) => {
-    gridImage[i].addEventListener('click', () => {
-        document.querySelector('.popup-picture__image').src = gridImage[i].src;
-        popupGridTitle.textContent = titleGrid[i].textContent;
-        openPopup(popupImage);
-    })
-})
