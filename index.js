@@ -64,6 +64,7 @@ const initialCards = [
 ];
 const grid = document.querySelector('.grid');
 function cardAdd(name, link) {
+    // слушатель лайка, мусорка
     const cardTemplate = document.querySelector('.template').content;
     const cardElementTemplate = cardTemplate.querySelector('.grid__element').cloneNode(true);
     cardElementTemplate.querySelector('.grid__title').textContent = name;
@@ -71,15 +72,16 @@ function cardAdd(name, link) {
     cardElementTemplate.querySelector('.grid__heart').addEventListener('click', function (evt) {
         evt.target.classList.toggle('grid__heart_active')
     })
-    const gridImage = document.querySelectorAll('.grid__image');
-    const titleGrid = document.querySelectorAll('.grid__title');
-    gridImage.forEach((btn, i) => {
-        gridImage[i].addEventListener('click', () => {
-            document.querySelector('.popup-picture__image').src = gridImage[i].src;
-            popupGridTitle.textContent = titleGrid[i].textContent;
-            openPopup(popupImage);
-        })
+    cardElementTemplate.querySelector('.grid__image').addEventListener('click', () => {
+        document.querySelector('.popup-picture__image').src = link;
+        popupGridTitle.textContent = name;
+        openPopup(popupImage);
     })
+
+    cardElementTemplate.querySelector('.grid__trash').addEventListener('click', () => {
+        cardElementTemplate.closest('.grid__element').remove();
+    })
+
     return cardElementTemplate;
 }
 function renderCard(name, link) {
@@ -87,40 +89,32 @@ function renderCard(name, link) {
 
 }
 initialCards.forEach(function (item) {
-    renderCard(item.name, item.link);
-    const deleteList = document.querySelectorAll('.grid__trash');
-    deleteList.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            btn.closest('.grid__element').remove()
-        });
-    });
+    renderCard(item.name, item.link);    
 });
 const nameA = document.querySelector('.popup__input_txt_name-add');
 const linkA = document.querySelector('.popup__input_link');
 const sumbitFormAdd = document.querySelector('.popup__save');
-sumbitFormAdd.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    const name = nameA.value;
-    const link = linkA.value;
-    renderCard(name, link);
-    const deleteList = document.querySelectorAll('.grid__trash');
-    deleteList.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            btn.closest('.grid__element').remove()
-        });
-    });
-    closePopup(popupAdd);
-    document.querySelector('.popup__input_txt_name-add').value = '';
-    document.querySelector('.popup__input_link').value = '';
-    const gridImage = document.querySelector('.grid__image');
-    const titleGrid = document.querySelector('.grid__title');
-    gridImage.addEventListener('click', () => {
-        document.querySelector('.popup-picture__image').src = gridImage.src;
-        popupGridTitle.textContent = titleGrid.textContent;
-        openPopup(popupImage);
-    })
-    grid.prepend(cardElementTemplate);
-})
+const txtName = document.querySelector('.popup__input_txt_name-add');
+const inputLink = document.querySelector('.popup__input_link');
+const addForm = document.querySelector('.popup__form-add');
+function formSubmitAdd(evt){
+        evt.preventDefault();
+        const name = nameA.value;
+        const link = linkA.value;
+        renderCard(name, link);
+        closePopup(popupAdd);
+        txtName.value = '';
+        inputLink.value = '';
+        const gridImage = document.querySelector('.grid__image');
+        const titleGrid = document.querySelector('.grid__title');
+        gridImage.addEventListener('click', () => {
+            document.querySelector('.popup-picture__image').src = gridImage.src;
+            popupGridTitle.textContent = titleGrid.textContent;
+            openPopup(popupImage);
+        })
+        grid.prepend(cardElementTemplate);
+    }
+addForm.addEventListener('submit', formSubmitAdd);
 // Попап картинка
 const popupImage = document.querySelector('.popup_image-open');
 const popupGridImage = document.querySelector('.popup-picture__image');
