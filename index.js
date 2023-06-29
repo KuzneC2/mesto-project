@@ -63,6 +63,7 @@ const initialCards = [
     }
 ];
 const grid = document.querySelector('.grid');
+const pictureImage = document.querySelector('.popup-picture__image')
 function cardAdd(name, link) {
     // слушатель лайка, мусорка
     const cardTemplate = document.querySelector('.template').content;
@@ -73,7 +74,7 @@ function cardAdd(name, link) {
         evt.target.classList.toggle('grid__heart_active')
     })
     cardElementTemplate.querySelector('.grid__image').addEventListener('click', () => {
-        document.querySelector('.popup-picture__image').src = link;
+        pictureImage.src = link;
         popupGridTitle.textContent = name;
         openPopup(popupImage);
     })
@@ -105,14 +106,7 @@ function formSubmitAdd(evt){
         closePopup(popupAdd);
         txtName.value = '';
         inputLink.value = '';
-        const gridImage = document.querySelector('.grid__image');
-        const titleGrid = document.querySelector('.grid__title');
-        gridImage.addEventListener('click', () => {
-            document.querySelector('.popup-picture__image').src = gridImage.src;
-            popupGridTitle.textContent = titleGrid.textContent;
-            openPopup(popupImage);
-        })
-        grid.prepend(cardElementTemplate);
+        
     }
 addForm.addEventListener('submit', formSubmitAdd);
 // Попап картинка
