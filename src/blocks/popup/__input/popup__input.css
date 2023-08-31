@@ -1,7 +1,7 @@
 .popup__input {
     display: block;
-    margin: 0 auto 38px;
-    width: calc(100% - 2*36px);
+    margin: 0 auto 5px;
+    width: 100%;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     font-family: 'Inter', Arial, sans-serif;
@@ -9,5 +9,5 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    padding: 0;
+    padding: 0 0 13px 0;
 }

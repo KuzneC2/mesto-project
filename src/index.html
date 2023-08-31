@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+</head>
+
+<body class="body">
+    <div class="popup popup_edit-profile">
+        <div class="popup__container popup__container_edit ">
+            <form class="popup__form-profile popup__form-edit" name="profile" novalidate>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <label class="popup__field">
+                    <input class="popup__input popup__input_txt_name" id="name" name="name" type="text"
+                        value="Жак-Ив Кусто" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$" required
+                        data-error-message="Разрешены только латинские буквы">
+                    <span class="popup__input-error name-error"></span>
+                </label>
+                <label class="popup__field">
+                    <input class="popup__input popup__input_txt_profession" id="job" name="profession" type="text"
+                        value="Исследователь океана" minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
+                        required>
+                    <span class="popup__input-error job-error "></span>
+                </label>
+                <button class="popup__sumbit" type="submit">Сохранить</button>
+                <button class="popup__close-btn" type="button">
+                    <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_add-card">
+        <div class="popup__container popup__container_add">
+            <form class=" popup__form-profile popup__form-add" name="popupEdit">
+                <h2 class="popup__title">Новое место</h2>
+                <label class="popup__field">
+                    <input class="popup__input popup__input_txt_name popup__input_txt_name-add" id="title" name="name"
+                        type="text" placeholder="Название" minlength="2" maxlength="40"
+                        pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$" required>
+                    <span class="popup__input-error title-error"></span>
+                </label>
+                <label class="popup__field">
+                    <input class="popup__input popup__input_txt_profession popup__input_link" id="popup__url"
+                        name="link" type="url" placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error popup__url-error"></span>
+                </label>
+                <button class="popup__sumbit popup__save popup__sumbit_dsbl" type="submit">Создать</button>
+                <button class="popup__close-btn " type="button">
+                    <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_image-open popup_image-dark">
+        <div class="popup-picture popup-picture_opened">
+            <img class="popup-picture__image" src="" alt="">
+            <h2 class="popup-picture__title"></h2>
+            <button class="popup__close-btn " type="button">
+                <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
+            </button>
+        </div>
+    </div>
+    <header class="header">
+        <img class="header__image" src="<%=require('./images/logo.svg')%>" alt="Логотип Место">
+    </header>
+    <main class="main">
+        <section class="profile">
+            <div class="profile__title">
+                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+                <div class="profile__info">
+                    <div class="profile__info-up">
+                        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button">
+                            <img class="profile__edit-img" src="<%=require('./images/Vector.svg')%>" alt="Изменить">
+                        </button>
+                    </div>
+                    <p class="profile__info-work">Исследователь океана</p>
+                </div>
+            </div>
+            <button class="profile__add-button" type="button"><img class="profile__add-plus" src="<%=require('./images/+.svg')%>"
+                    alt="Добавить"></button>
+        </section>
+        <section class="grid"></section>
+    </main>
+    <footer class="footer">
+        <p class="footer__land">© 2020 Mesto Russia</p>
+    </footer>
+    </div>
+    <template class="template">
+        <div class="grid__element">
+            <button class="grid__trash">
+                <img src="<%=require('./images/Trash.png')%>" alt="Удалить">
+            </button>
+            <img class="grid__image" alt="Карачаевс">
+            <div class="grid__info">
+                <h2 class="grid__title"></h2>
+                <button class="grid__heart-button" type="button">
+                    <img class="grid__heart" src="<%=require('./images/like.svg')%>" alt="Избранное">
+                </button>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>
