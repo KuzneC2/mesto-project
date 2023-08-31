@@ -1,7 +1,8 @@
 import './pages/index.css'
+import { openPopup, closePopup } from './components/utilits.js';;
 import { enableValidation, hideInputError, toggleButtonState, resetElementForms } from './components/validate.js';
-import { openPopup, closePopup, formSubmitHandler, name, job, formEdit, popupEdit } from './components/utilits.js';
-import { initialCards, renderCard, addForm, formSubmitAdd, cardAdd, popupAdd } from './components/cards.js';
+import { formSubmitHandler, name, job, formEdit, popupEdit, formSubmitAdd, popupAdd, addForm } from './components/modal.js';
+import { initialCards, renderCard, cardAdd } from './components/cards.js';
 enableValidation()
 // Открытие попапа изменения профиля
 const openEdidPopup = document.querySelector('.profile__edit-img');

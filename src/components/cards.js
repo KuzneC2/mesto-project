@@ -58,18 +58,3 @@ const grid = document.querySelector('.grid');
 export function renderCard(name, link) {
     grid.prepend(cardAdd(name, link));
 }
-
-const nameA = document.querySelector('.popup__input_txt_name-add');
-const linkA = document.querySelector('.popup__input_link');
-export const popupAdd = document.querySelector('.popup_add-card');
-export const addForm = document.querySelector('.popup__form-add');
-
-// Функция кнопки создания карточки
-export function formSubmitAdd(evt) {
-    evt.preventDefault();
-    const name = nameA.value;
-    const link = linkA.value;
-    renderCard(name, link);
-    closePopup(popupAdd);
-    addForm.reset();
-}
