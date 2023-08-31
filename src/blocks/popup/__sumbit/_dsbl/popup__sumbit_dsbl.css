@@ -1,0 +1,27 @@
+.popup__sumbit_dsbl {
+    border-radius: 2px;
+    border: 1px solid #000;
+    background-color: #00000000;
+    opacity: 0.2;
+    color: #000000;
+    text-align: center;
+    font-family: Inter, sans-serif, Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.popup__sumbit_dsbl:hover {
+    border-radius: 2px;
+    border: 1px solid #000;
+    background-color: #00000000;
+    opacity: 0.2;
+    color: #000000;
+    text-align: center;
+    font-family: Inter, sans-serif, Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

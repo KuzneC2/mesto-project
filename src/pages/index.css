@@ -51,73 +51,7 @@
 @import url(../blocks/grid/__trash/grid__trash.css);
 @import url(../blocks/grid/__heart/_active/grid__heart_active.css);
 
-.form__set {
-    border: none;
-}
-
-.popup__input-error {
-    color: red;
-    display: inline-block;
-    width: 100%;
-    font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 15px;
-    letter-spacing: 0em;
-    text-align: left;
-
-}
-
-
-
-.button_inactive {
-    opacity: 20%;
-    border: 1px;
-    color: brown;
-}
-
-.popup__field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 13px;
-}
-
-
-/* .popup__title {
-    margin: 0 0 54px 0;
-    color: #000;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-} */
-
-.popup__sumbit_dsbl {
-    border-radius: 2px;
-    border: 1px solid #000;
-    background-color: #00000000;
-    opacity: 0.2;
-    color: #000000;
-    text-align: center;
-    font-family: Inter, sans-serif, Arial;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.popup__sumbit_dsbl:hover {
-    border-radius: 2px;
-    border: 1px solid #000;
-    background-color: #00000000;
-    opacity: 0.2;
-    color: #000000;
-    text-align: center;
-    font-family: Inter, sans-serif, Arial;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
+@import url(../blocks/form/__set/form__set.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__fieled/popup__field.css);
+@import url(../blocks/popup/__sumbit/_dsbl/popup__sumbit_dsbl.css);
