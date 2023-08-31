@@ -6,6 +6,9 @@
 
 ## Подключили javascript.
 
+## Подключение WebPack
+
+
 ### Ссылка на GitPage- https://kuznec2.github.io/mesto-project/
 
 
