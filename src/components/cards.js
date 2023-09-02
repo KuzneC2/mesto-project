@@ -32,17 +32,19 @@ const pictureImage = document.querySelector('.popup-picture__image');
 const popupGridTitle = document.querySelector('.popup-picture__title');
 const popupImage = document.querySelector('.popup_image-open');
 // Функция создания карточек
-export function cardAdd(name, link) {
+export function createCard(name, link) {
     const cardTemplate = document.querySelector('.template').content;
     const cardElementTemplate = cardTemplate.querySelector('.grid__element').cloneNode(true);
     cardElementTemplate.querySelector('.grid__title').textContent = name;
     cardElementTemplate.querySelector('.grid__image').src = link;
+    cardElementTemplate.querySelector('.grid__image').alt = `Изображение ${name}`;
     cardElementTemplate.querySelector('.grid__heart').addEventListener('click', function (evt) {
         evt.target.classList.toggle('grid__heart_active')
     })
     cardElementTemplate.querySelector('.grid__image').addEventListener('click', () => {
         pictureImage.src = link;
         popupGridTitle.textContent = name;
+        pictureImage.alt = `Изображение ${name}`;
         openPopup(popupImage);
     })
 
@@ -56,5 +58,5 @@ export function cardAdd(name, link) {
 const grid = document.querySelector('.grid');
 // Функция добавления карточек
 export function renderCard(name, link) {
-    grid.prepend(cardAdd(name, link));
+    grid.prepend(createCard(name, link));
 }

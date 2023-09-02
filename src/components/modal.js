@@ -1,4 +1,4 @@
-import { openPopup, closePopup } from "./utilits";
+import { closePopup } from "./utilits";
 import { renderCard } from "./cards";
 
 export const closeButtons = document.querySelectorAll('.popup__close');
@@ -7,12 +7,13 @@ export const popupEdit = document.querySelector('.popup_edit-profile');
 export const formEdit = document.querySelector('.popup__form-profile')
 export const name = document.querySelector('.profile__info-name');
 export const job = document.querySelector('.profile__info-work');
-export function formSubmitHandler(evt) {
+export const inputName = document.querySelector('.popup__input_txt_name');
+export const inputProfession = document.querySelector('.popup__input_txt_profession')
+export function handleFormSubmit(evt) {
     evt.preventDefault();
-    name.textContent = document.querySelector('.popup__input_txt_name').value;
-    job.textContent = document.querySelector('.popup__input_txt_profession').value;
+    name.textContent = inputName.value;
+    job.textContent = inputProfession.value;
     closePopup(popupEdit);
-    formEdit.reset()
 }
 
 const nameA = document.querySelector('.popup__input_txt_name-add');
@@ -21,7 +22,7 @@ export const popupAdd = document.querySelector('.popup_add-card');
 export const addForm = document.querySelector('.popup__form-add');
 
 // Функция кнопки создания карточки
-export function formSubmitAdd(evt) {
+export function submitAddCard(evt) {
     evt.preventDefault();
     const name = nameA.value;
     const link = linkA.value;

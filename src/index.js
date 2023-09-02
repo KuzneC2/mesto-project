@@ -1,57 +1,50 @@
 import './pages/index.css'
 import { openPopup, closePopup } from './components/utilits.js';;
-import { enableValidation, hideInputError, toggleButtonState, resetElementForms } from './components/validate.js';
-import { formSubmitHandler, name, job, formEdit, popupEdit, formSubmitAdd, popupAdd, addForm } from './components/modal.js';
-import { initialCards, renderCard, cardAdd } from './components/cards.js';
-enableValidation()
+import { handleFormSubmit, name, job, formEdit, popupEdit, submitAddCard, popupAdd, addForm, inputName, inputProfession } from './components/modal.js';
+import { initialCards, renderCard} from './components/cards.js';
+import { enableValidation,  resetElementForms, settings } from './components/validate.js';
+
+enableValidation(settings);
+
+
+
+
+
+
 // Открытие попапа изменения профиля
 const openEdidPopup = document.querySelector('.profile__edit-img');
 openEdidPopup.addEventListener('click', function () {
     openPopup(popupEdit);
-    document.querySelector('.popup__input_txt_name').value = name.textContent;
-    document.querySelector('.popup__input_txt_profession').value = job.textContent;
-    resetElementForms(formEdit);
+    inputName.value = name.textContent;
+    inputProfession.value = job.textContent;
+    resetElementForms(formEdit, settings);
 });
 
 // Открытие попапа добавления карточки
 const openAddPopup = document.querySelector('.profile__add-button');
+const formAdd = document.querySelector('.popup__form-add');
 openAddPopup.addEventListener('click', function () {
     openPopup(popupAdd);
-    const formAdd = document.querySelector('.popup__form-add');
-    resetElementForms(formAdd);
+    resetElementForms(formAdd, settings);
     formAdd.reset()
 });
 
-//  закрытие попапов на крестик
-const closeButtons = document.querySelectorAll('.popup__close');
-closeButtons.forEach((item) => {
-    item.addEventListener('click', function () {
-        popup.forEach((item) => {
-            closePopup(item);
-        });
-    })
-})
+// Закрытие попапа на крестик и на оверлей
+const popups = document.querySelectorAll('.popup');
 
-// закрытие попапа на оверлей
-const popup = document.querySelectorAll('.popup');
-popup.forEach((item) => {
-    item.addEventListener('click', function (evt) {
-        if (evt.target === item) {
-            closePopup(item);
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+          closePopup(popup)
         }
     })
 })
-// ESC закрытие окна
-popup.forEach((item) => {
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closePopup(item)
-        }
-    })
-});
 
 // Отправка + закрытие попапа редактирования
-formEdit.addEventListener('submit', formSubmitHandler);
+formEdit.addEventListener('submit', handleFormSubmit);
 
 // Рендеринг карточек
 initialCards.forEach(function (item) {
@@ -59,4 +52,4 @@ initialCards.forEach(function (item) {
 });
 
 // Отправка и закрытие попапа добавления карточек 
-addForm.addEventListener('submit', formSubmitAdd);
+addForm.addEventListener('submit', submitAddCard);
