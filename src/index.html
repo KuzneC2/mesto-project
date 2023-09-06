@@ -54,6 +54,22 @@
             </form>
         </div>
     </div>
+    <div class="popup popup_avatar">
+        <div class="popup__container popup__container_add">
+            <form class=" popup__form-profile popup__form-avatar" name="popupEdit">
+                <h2 class="popup__title">Обновить аватар</h2>
+                <label class="popup__field">
+                    <input class="popup__input popup__input_txt_profession popup__input_link-avatar" id="popup__url"
+                        name="link" type="url" placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error popup__url-error"></span>
+                </label>
+                <button class="popup__sumbit popup__save popup__sumbit_dsbl popup__summbit-avatar" type="submit">Сохранить</button>
+                <button class="popup__close-btn " type="button">
+                    <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
+                </button>
+            </form>
+        </div>
+    </div>
     <div class="popup popup_image-open popup_image-dark">
         <div class="popup-picture popup-picture_opened">
             <img class="popup-picture__image" src="" alt="">
@@ -69,7 +85,10 @@
     <main class="main">
         <section class="profile">
             <div class="profile__title">
-                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+                <div class="profile__avatar-container">
+                    <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+                    <img class="profile__edit-avatar" src="<%=require('./images/editAvatar.png')%>" alt="Изменить аватар">
+                </div>
                 <div class="profile__info">
                     <div class="profile__info-up">
                         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
