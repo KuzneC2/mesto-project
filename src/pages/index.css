@@ -18,6 +18,8 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__edit-img/profile__edit-img.css);
 @import url(../blocks/profile/__add-plus/profile__add-plus.css);
+@import url(../blocks/profile/__avatar-container/profile__avatar-container.css);
+@import url(../blocks/profile/__edit-avatar/profile__edit-avatar.css);
 
 @import url(../blocks/grid/grid.css);
 
@@ -27,6 +29,8 @@
 @import url(../blocks/grid/__info/grid__info.css);
 @import url(../blocks/grid/__title/grid__title.css);
 @import url(../blocks/grid/__heart-button/grid__heart-button.css);
+@import url(../blocks/grid/__heart-counter/grid__heart-counter.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__land/footer__land.css);
 
@@ -40,6 +44,10 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__loading-avatar/popup__loading-avatar.css);
+@import url(../blocks/popup/__loading-info/popup__loading-info.css);
+@import url(../blocks/popup/__loading-picture/popup__loading-picture.css);
+
 
 
 @import url(../blocks/popup/_image-dark/popup_image-dark.css);
@@ -56,31 +64,8 @@
 @import url(../blocks/popup/__fieled/popup__field.css);
 @import url(../blocks/popup/__sumbit/_dsbl/popup__sumbit_dsbl.css);
 
+@import url(../blocks/button/__hidden/button__hidden.css);
+@import url(../blocks/load/__visible/load__visible.css);
 
-.profile__avatar-container {
-    position: relative;
-    margin: 0 auto;
-}
 
-.profile__avatar-container .profile__avatar {
-    opacity: 1;
-    transition: opacity 0.3s;
-}
 
-.profile__avatar-container:hover .profile__avatar {
-    cursor: pointer;
-    opacity: 0.2;
-}
-
-.profile__avatar-container:hover .profile__edit-avatar {
-    cursor: pointer;
-    opacity: 1;
-}
-
-.profile__edit-avatar {
-    position: absolute;
-    top: 47px;
-    left: 47px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}

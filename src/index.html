@@ -25,7 +25,8 @@
                         required>
                     <span class="popup__input-error job-error "></span>
                 </label>
-                <button class="popup__sumbit" type="submit">Сохранить</button>
+                <button class="popup__sumbit popup__save-info" type="submit">Сохранить</button>
+                <button class="popup__loading-info" type="submit">Сохранение...</button>
                 <button class="popup__close-btn" type="button">
                     <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
                 </button>
@@ -47,7 +48,8 @@
                         name="link" type="url" placeholder="Ссылка на картинку" required>
                     <span class="popup__input-error popup__url-error"></span>
                 </label>
-                <button class="popup__sumbit popup__save popup__sumbit_dsbl" type="submit">Создать</button>
+                <button class="popup__sumbit popup__save popup__sumbit_dsbl popup__save-picture" type="submit">Создать</button>
+                <button class="popup__loading-picture" type="submit">Сохранение...</button>
                 <button class="popup__close-btn " type="button">
                     <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
                 </button>
@@ -63,7 +65,8 @@
                         name="link" type="url" placeholder="Ссылка на картинку" required>
                     <span class="popup__input-error popup__url-error"></span>
                 </label>
-                <button class="popup__sumbit popup__save popup__sumbit_dsbl popup__summbit-avatar" type="submit">Сохранить</button>
+                <button class="popup__sumbit popup__save popup__sumbit_dsbl popup__summbit-avatar popup__save-avatar" type="submit">Сохранить</button>
+                <button class="popup__loading-avatar" type="submit">Сохранение...</button>
                 <button class="popup__close-btn " type="button">
                     <img class="popup__close" src="<%=require('./images/CloseIcon.svg')%>" alt="Закрыть">
                 </button>
@@ -86,17 +89,17 @@
         <section class="profile">
             <div class="profile__title">
                 <div class="profile__avatar-container">
-                    <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+                    <img class="profile__avatar" src="" alt="Аватар">
                     <img class="profile__edit-avatar" src="<%=require('./images/editAvatar.png')%>" alt="Изменить аватар">
                 </div>
                 <div class="profile__info">
                     <div class="profile__info-up">
-                        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__info-name"></h1>
                         <button class="profile__edit-button" type="button">
                             <img class="profile__edit-img" src="<%=require('./images/Vector.svg')%>" alt="Изменить">
                         </button>
                     </div>
-                    <p class="profile__info-work">Исследователь океана</p>
+                    <p class="profile__info-work"></p>
                 </div>
             </div>
             <button class="profile__add-button" type="button"><img class="profile__add-plus" src="<%=require('./images/+.svg')%>"
@@ -112,12 +115,15 @@
             <button class="grid__trash">
                 <img src="<%=require('./images/Trash.png')%>" alt="Удалить">
             </button>
-            <img class="grid__image" alt="Карачаевс">
+            <img class="grid__image" alt="">
             <div class="grid__info">
                 <h2 class="grid__title"></h2>
-                <button class="grid__heart-button" type="button">
-                    <img class="grid__heart" src="<%=require('./images/like.svg')%>" alt="Избранное">
-                </button>
+                <div class="grid__heart-container">
+                    <button class="grid__heart-button" type="button">
+                        <img class="grid__heart" src="<%=require('./images/like.svg')%>" alt="Избранное">
+                        <p class="grid__heart-counter"></p>
+                    </button>
+                </div>
             </div>
         </div>
     </template>

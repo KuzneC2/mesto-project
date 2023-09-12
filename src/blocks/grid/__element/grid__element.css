@@ -4,11 +4,12 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    max-height: 361px;
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
     .grid__element{
         max-height: 361px;
     }
     
-}
+} */
