@@ -824,6 +824,7 @@ template {
     line-height: 16px;
     letter-spacing: 0em;
     text-align: center;
+    color: #000;
 }
 .footer {
     margin-bottom: 60px;
@@ -1205,4 +1206,5 @@ template {
 .load__visible {
     display: block;
 }
+
 
