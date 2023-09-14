@@ -1,6 +1,6 @@
 import { openPopup } from "./utilits";
 import { deleteCardApi, putLike, deleteLike } from "./api.js";
-export const userId = '';
+export let userId = '';
 
 const pictureImage = document.querySelector('.popup-picture__image');
 const popupGridTitle = document.querySelector('.popup-picture__title');
@@ -19,9 +19,17 @@ export function createCard(name, link, likes, creatorId, userId, cardId) {
 
     cardElementTemplate.querySelector('.grid__heart').addEventListener('click', function () {
         if (likeButton.classList.contains('grid__heart_active')) {
-            deleteLike(cardId, likeButton, likeCounter);
+            deleteLike(cardId, likeButton, likeCounter)
+            .then(data => {
+                likeButton.classList.remove('grid__heart_active');
+                likeCounter.textContent = data.likes.length;
+            })
         } else {
-            putLike(cardId, likeButton, likeCounter);
+            putLike(cardId, likeButton, likeCounter)
+            .then(data => {
+                likeButton.classList.add('grid__heart_active');
+                likeCounter.textContent = data.likes.length;
+            })
         }
     })
     cardElementTemplate.querySelector('.grid__image').addEventListener('click', () => {
@@ -42,6 +50,7 @@ export function createCard(name, link, likes, creatorId, userId, cardId) {
     }
     return cardElementTemplate;
 }
+
 const grid = document.querySelector('.grid');
 // Функция добавления карточек
 export function renderCard(name, link, likes = [], creatorId, userId, cardId) {

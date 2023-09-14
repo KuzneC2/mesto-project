@@ -1,87 +1,63 @@
 import { name, job, nameA, linkA, avatar, renderLoading, saveInformation, loadBlockInformation, savePicture, saveAvatar, loadBlockAvatar, loadBlockPicture } from "./modal.js";
 
-export const getProfileApi = fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me', {
-    headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4'
-    },
-    body: JSON.stringify(
-    )
-})
-    .then(res => {
+function checkResult(res) {
+    if (res.ok) {
         return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+}
+
+export function getProfileApi(data){
+   return fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me', {
+       headers: {
+           'Content-Type': 'application/json; charset=UTF-8',
+           'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4'
+       },
+       body: JSON.stringify(
+       )
     })
-    .catch((err) => {
-        console.log(err);
-    });
-export const getCardsApi = fetch('https://nomoreparties.co/v1/plus-cohort-28/cards', {
+    .then(checkResult);
+}
+export function getCardsApi(data){
+    return fetch('https://nomoreparties.co/v1/plus-cohort-28/cards', {
     headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4'
     },
     body: JSON.stringify()
 })
-    .then(res => {
-        return res.json();
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+    .then(checkResult);
+}
 // // изменение профиля
-export function getEditProfile() {
-    renderLoading(true, saveInformation, loadBlockInformation);
+export function getEditProfile(data) {
 
-    fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me', {
+    return fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me', {
         method: 'PATCH',
         headers: {
             'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: name.textContent,
-            about: job.textContent,
+            name: data.name,
+            about: data.about,
         })
     })
-        .then(res => {
-            return res.json()
-        })
-        .then(data => {
-            data.name = name.textContent
-            data.about = job.textContent
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally(() => {
-            renderLoading(false, saveInformation, loadBlockInformation)
-        })
+        .then(checkResult);
 }
-export function addNewCard() {
-    renderLoading(true, savePicture, loadBlockPicture);
-    fetch('https://nomoreparties.co/v1/plus-cohort-28/cards', {
+export function addNewCard(data) {
+    return fetch('https://nomoreparties.co/v1/plus-cohort-28/cards', {
         method: "POST",
         headers: {
             'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: nameA.value,
-            link: linkA.value,
+            name: data.name,
+            link: data.link,
         })
     })
-        .then(res => {
-            return res.json()
-        })
-        .then(data => {
-            data.name = nameA.value
-            data.src = linkA.value
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally(() => {
-            renderLoading(false, savePicture, loadBlockPicture)
-        })
+        .then(checkResult)
+
 }
 export function deleteCardApi(id) {
     fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/${id}`, {
@@ -92,13 +68,11 @@ export function deleteCardApi(id) {
         },
         body: JSON.stringify()
     })
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(checkResult)
 
 }
 export function putLike(cardId, likeButton, likeCounter) {
-    fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/likes/${cardId}`, {
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/likes/${cardId}`, {
         method: 'PUT',
         body: JSON.stringify(
             { likes: [] }
@@ -106,36 +80,21 @@ export function putLike(cardId, likeButton, likeCounter) {
         headers: {
             'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4',
             'Content-Type': 'application/json'
-        }
+        },
     })
-        .then(response => response.json())
-        .then(data => {
-            likeButton.classList.add('grid__heart_active');
-            likeCounter.textContent = data.likes.length;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(checkResult)
 };
 export function deleteLike(cardId, likeButton, likeCounter) {
-    fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/likes/${cardId}`, {
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/likes/${cardId}`, {
         method: 'DELETE',
         headers: {
             'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4',
             'Content-Type': 'application/json'
         },
     })
-        .then(response => response.json())
-        .then(data => {
-            likeButton.classList.remove('grid__heart_active');
-            likeCounter.textContent = data.likes.length;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then(checkResult)
 };
-export function changeAvatar() {
-    renderLoading(true, saveAvatar, loadBlockAvatar)
+export function changeAvatar(data) {
     return fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me/avatar', {
         method: 'PATCH',
         headers: {
@@ -143,19 +102,8 @@ export function changeAvatar() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            avatar: avatar.src
+            avatar: data.avatar
         }),
     })
-        .then(res => {
-            return res.json()
-        })
-        .then(data => {
-            data.avatar = avatar.src
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally(() => {
-            renderLoading(false, saveAvatar, loadBlockAvatar);
-        });
+    .then(checkResult)
 }

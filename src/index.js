@@ -1,7 +1,7 @@
-import './pages/index.css'
-import { openPopup, closePopup } from './components/utilits.js';;
+import './index.css'
+import { openPopup, closePopup } from './components/utilits.js';
 import { handleFormSubmit, name, job, formEdit, popupEdit, submitAddCard, popupAdd, addForm, inputName, inputProfession, popupAvatar, avatar, editAvatarBtn, formAvatar, editAvatar } from './components/modal.js';
-import { renderCard } from './components/cards.js';
+import { renderCard, userId } from './components/cards.js';
 import { enableValidation, resetElementForms, settings } from './components/validate.js';
 import { getProfileApi, getCardsApi, getEditProfile } from './components/api.js';
 enableValidation(settings);
@@ -45,17 +45,17 @@ popups.forEach((popup) => {
 })
 // Отправка + закрытие попапа редактирования
 formEdit.addEventListener('submit',handleFormSubmit)
-formEdit.addEventListener('submit', getEditProfile)
 // Отправка и закрытие попапа добавления карточек 
 addForm.addEventListener('submit', submitAddCard);
-const infoTablo = Promise.all([getProfileApi, getCardsApi])
-    .then(([getProfileApi, getCardsApi]) => {
-        name.textContent = getProfileApi.name;
-        job.textContent = getProfileApi.about;
-        avatar.src = getProfileApi.avatar
-
-        getCardsApi.forEach(function (item) {
-            renderCard(item.name, item.link, item.likes, item.owner._id, getProfileApi._id, item._id);
+const infoTablo = Promise.all([getProfileApi(), getCardsApi()])
+    .then(([profileApi, cardsApi]) => {
+        userId = profileApi._id;
+        name.textContent = profileApi.name;
+        job.textContent = profileApi.about;
+        avatar.src = profileApi.avatar
+        const cardArr = cardsApi.reverse() 
+        cardArr.forEach(function (item) {
+            renderCard(item.name, item.link, item.likes, item.owner._id, profileApi._id, item._id);
         });
     })
     .catch(err => {
