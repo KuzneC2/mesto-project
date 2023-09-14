@@ -12,14 +12,13 @@ export const inputName = document.querySelector('.popup__input_txt_name');
 export const inputProfession = document.querySelector('.popup__input_txt_profession')
 export function handleFormSubmit(evt) {
     evt.preventDefault();
-    name.textContent = inputName.value;
-    job.textContent = inputProfession.value;
     renderLoading(true, saveInformation, loadBlockInformation);
     getEditProfile({ name: inputName.value, about: inputProfession.value })
         .then(data => {
             name.textContent = data.name;
             job.textContent = data.about;
         })
+        .catch(err => console.log(err))
         .finally(() => {
             renderLoading(false, saveInformation, loadBlockInformation)
         })
@@ -40,6 +39,7 @@ export function submitAddCard(evt) {
         .then(data => {
             renderCard(data.name, data.link, data.likes, data.owner._id, userId, data._id);
         })
+        .catch(err => console.log(err))
         .finally(() => {
             renderLoading(false, savePicture, loadBlockPicture)
             addForm.reset();
@@ -62,7 +62,7 @@ export function editAvatar() {
             closePopup(popupAvatar);
 
         })
-
+        .catch(err => console.log(err))
         .finally(() => {
             renderLoading(false, saveAvatar, loadBlockAvatar);
         });

@@ -60,13 +60,12 @@ export function addNewCard(data) {
 
 }
 export function deleteCardApi(id) {
-    fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/${id}`, {
-        method: "DELETE",
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/${id}`, {
+        method: "DELETE",   
         headers: {
             'authorization': '78bba5ba-993f-40b2-a4ae-e02179c22cc4',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify()
     })
         .then(checkResult)
 

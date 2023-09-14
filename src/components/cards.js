@@ -17,6 +17,12 @@ export function createCard(name, link, likes, creatorId, userId, cardId) {
     cardElementTemplate.querySelector('.grid__image').alt = `Изображение ${name}`;
     cardElementTemplate.querySelector('.grid__heart-counter').textContent = likes.length;
 
+    const isLikedByUser = likes.some(like => like._id === userId);
+
+    if (isLikedByUser) {
+        likeButton.classList.add('grid__heart_active');
+    }
+
     cardElementTemplate.querySelector('.grid__heart').addEventListener('click', function () {
         if (likeButton.classList.contains('grid__heart_active')) {
             deleteLike(cardId, likeButton, likeCounter)
@@ -24,12 +30,15 @@ export function createCard(name, link, likes, creatorId, userId, cardId) {
                 likeButton.classList.remove('grid__heart_active');
                 likeCounter.textContent = data.likes.length;
             })
+            .catch(err => console.log(err))
         } else {
             putLike(cardId, likeButton, likeCounter)
             .then(data => {
                 likeButton.classList.add('grid__heart_active');
                 likeCounter.textContent = data.likes.length;
+                likes.push({ _id: userId });
             })
+            .catch(err => console.log(err))
         }
     })
     cardElementTemplate.querySelector('.grid__image').addEventListener('click', () => {
@@ -41,9 +50,16 @@ export function createCard(name, link, likes, creatorId, userId, cardId) {
     // Проверяем, является ли карточка вашей
     if (creatorId === userId) {
         cardElementTemplate.querySelector('.grid__trash').addEventListener('click', () => {
-            cardElementTemplate.closest('.grid__element').remove();
-            deleteCardApi(cardId);
-        })
+            deleteCardApi(cardId)
+            .then(() => {
+                // Удаление карточки после успешного запроса на сервер
+                cardElementTemplate.closest('.grid__element').remove();
+            })
+            .catch(error => {
+                console.error(`Ошибка при удалении карточки: ${error}`);
+                // Добавьте обработку ошибки, если необходимо
+            });
+        });
     } else {
         // Если карточка не ваша, скрываем иконку удаления
         cardElementTemplate.querySelector('.grid__trash').style.display = 'none';
